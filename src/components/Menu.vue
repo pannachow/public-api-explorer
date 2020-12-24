@@ -1,6 +1,10 @@
 <template>
   <div class="Menu">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav
+      class="navbar is-fixed-top"
+      role="navigation"
+      aria-label="main navigation"
+    >
       <div class="navbar-brand">
         <a class="navbar-item" href="https://www.d-tt.nl/">
           <img src="@/assets/dtt_logo.svg" height="300" width="150" />
