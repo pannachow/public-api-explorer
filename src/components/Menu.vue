@@ -1,15 +1,11 @@
 <template>
   <div class="Menu">
     <nav
-      class="navbar is-fixed-top"
+      class="navbar is-fixed-top is-spaced"
       role="navigation"
       aria-label="main navigation"
     >
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://www.d-tt.nl/">
-          <img src="@/assets/dtt_logo.svg" height="300" width="150" />
-        </a>
-
         <a
           role="button"
           class="navbar-burger"
@@ -33,23 +29,9 @@
             Categories
           </a>
 
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-              Random
-            </a>
-
-            <div class="navbar-dropdown">
-              <a class="navbar-item">
-                About
-              </a>
-              <a class="navbar-item">
-                Jobs
-              </a>
-              <a class="navbar-item">
-                Contact
-              </a>
-            </div>
-          </div>
+          <a class="navbar-item">
+            Random
+          </a>
         </div>
       </div>
     </nav>
@@ -57,11 +39,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
+export default {
   name: "Menu"
-});
+};
 </script>
 
 <style scoped>
@@ -76,10 +56,7 @@ a {
   color: #42b983;
   font-size: 22px;
 }
-.navbar-item img {
+/* .navbar-item img {
   max-height: 10rem;
-}
-.navbar-item {
-  padding: 2rem 2rem;
-}
+} */
 </style>

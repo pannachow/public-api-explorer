@@ -20,6 +20,12 @@ const routes: Array<RouteRecordRaw> = [
     name: "Randomizer",
     component: () =>
       import(/* webpackChunkName: "randomizer" */ "../views/Randomizer.vue")
+  },
+  {
+    path: "/detail/:name",
+    name: "Detail",
+    component: () =>
+      import(/* webpackChunkName: "detail" */ "../views/Detail.vue")
   }
 ];
 const router = createRouter({
