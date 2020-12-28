@@ -27,15 +27,16 @@
 
 <script lang="ts">
 import { ref } from "vue";
+import { Api, ApisResponse } from "@/models";
 
 export default {
   name: "Home",
   setup() {
-    const apis = ref([]);
+    const apis = ref<Api[]>([]);
 
     async function listApis() {
       const response = await fetch("https://api.publicapis.org/entries");
-      const data = await response.json();
+      const data: ApisResponse = await response.json();
 
       apis.value = data.entries.slice(0, 10);
     }
