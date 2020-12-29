@@ -25,13 +25,20 @@
             Home
           </router-link>
 
-          <a class="navbar-item">
-            Categories
-          </a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Categories
+            </a>
+            <div class="navbar-dropdown">
+              <a v-for="cat in cats" :key="cat" class="navbar-item">
+                {{ cat }}
+              </a>
+            </div>
 
-          <a class="navbar-item">
-            Random
-          </a>
+            <a class="navbar-item">
+              Random
+            </a>
+          </div>
         </div>
       </div>
     </nav>
@@ -39,8 +46,24 @@
 </template>
 
 <script lang="ts">
+import { ref } from "vue";
+
 export default {
-  name: "Menu"
+  name: "Menu",
+  setup() {
+    const cats = ref<string[]>([]);
+
+    async function listCat() {
+      const response = await fetch(`https://api.publicapis.org/categories`);
+      cats.value = await response.json();
+    }
+
+    listCat();
+
+    return {
+      cats
+    };
+  }
 };
 </script>
 
@@ -56,5 +79,9 @@ a {
   color: #42b983;
   font-size: 22px;
   font-weight: bold;
+}
+.navbar-dropdown {
+  overflow: auto;
+  max-height: 500px;
 }
 </style>
