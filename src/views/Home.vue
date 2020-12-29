@@ -3,13 +3,15 @@
     <table class="table is-hoverable is-striped is-fullwidth">
       <thead>
         <th v-for="key in Keys" :key="key" @click="sort(key)">
-          {{ key }}
-          <span class="icon" v-if="sortKey === key && sortDir === +1">
-            <i class="fas fa-angle-up"></i>
-          </span>
-          <span class="icon" v-if="sortKey === key && sortDir === -1">
-            <i class="fas fa-angle-down"></i>
-          </span>
+          <a>
+            {{ key }}
+            <span class="icon" v-if="sortKey === key && sortDir === +1">
+              <i class="fas fa-angle-up"></i>
+            </span>
+            <span class="icon" v-if="sortKey === key && sortDir === -1">
+              <i class="fas fa-angle-down"></i>
+            </span>
+          </a>
         </th>
       </thead>
       <tbody>
@@ -70,3 +72,12 @@ export default {
   }
 };
 </script>
+
+<style>
+th a {
+  color: #42b983;
+}
+td a {
+  color: black;
+}
+</style>

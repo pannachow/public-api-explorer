@@ -40,7 +40,4 @@ body,
 .footer {
   flex-shrink: 0;
 }
-a {
-  color: #42b983;
-}
 </style>

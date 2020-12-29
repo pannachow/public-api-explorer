@@ -7,7 +7,7 @@
         </figure>
       </div>
       <div class="column content">
-        <h1>{{ api.API }}</h1>
+        <p>{{ api.API }}</p>
         <p>Description: {{ api.Description }}</p>
         <p>Auth: {{ api.Auth }}</p>
         <p>HTTPS: {{ api.HTTPS }}</p>
@@ -56,5 +56,8 @@ export default {
   margin-left: 30px;
   text-align: left;
   font-weight: bold;
+}
+a {
+  color: #42b983;
 }
 </style>
