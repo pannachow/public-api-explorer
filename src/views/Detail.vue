@@ -13,7 +13,10 @@
           <h3>Auth: {{ api.Auth }}</h3>
           <h3>HTTPS: {{ api.HTTPS }}</h3>
           <h3>Cors: {{ api.Cors }}</h3>
-          <h3>Link: {{ api.Link }}</h3>
+          <h3>
+            Link:
+            <a :href="api.Link">{{ api.Link }} </a>
+          </h3>
           <h3>Category: {{ api.Category }}</h3>
         </div>
       </div>
