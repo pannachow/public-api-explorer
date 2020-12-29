@@ -56,7 +56,4 @@ a {
   color: #42b983;
   font-size: 22px;
 }
-/* .navbar-item img {
-  max-height: 10rem;
-} */
 </style>
