@@ -1,24 +1,22 @@
 <template>
   <div class="box" v-if="api">
-    <article class="media">
-      <div class="media-left">
-        <figure>
+    <article class="columns">
+      <div class="column is-one-quarter is-flex">
+        <figure class="is-align-self-center">
           <img src="@/assets/animal.png" alt="Image" />
         </figure>
       </div>
-      <div class="media-content">
-        <div class="content">
-          <h1>{{ api.API }}</h1>
-          <h3>Description: {{ api.Description }}</h3>
-          <h3>Auth: {{ api.Auth }}</h3>
-          <h3>HTTPS: {{ api.HTTPS }}</h3>
-          <h3>Cors: {{ api.Cors }}</h3>
-          <h3>
-            Link:
-            <a :href="api.Link">{{ api.Link }} </a>
-          </h3>
-          <h3>Category: {{ api.Category }}</h3>
-        </div>
+      <div class="column content">
+        <h1>{{ api.API }}</h1>
+        <p>Description: {{ api.Description }}</p>
+        <p>Auth: {{ api.Auth }}</p>
+        <p>HTTPS: {{ api.HTTPS }}</p>
+        <p>Cors: {{ api.Cors }}</p>
+        <p>
+          Link:
+          <a :href="api.Link">{{ api.Link }} </a>
+        </p>
+        <p>Category: {{ api.Category }}</p>
       </div>
     </article>
   </div>
@@ -54,11 +52,9 @@ export default {
 </script>
 
 <style scoped>
-.media-left {
-  align-self: center;
-}
-.media-content {
+.content {
   margin-left: 30px;
   text-align: left;
+  font-weight: bold;
 }
 </style>
