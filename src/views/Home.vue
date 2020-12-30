@@ -15,11 +15,9 @@
         </th>
       </thead>
       <tbody>
-        <tr v-for="api in apis" :key="api.API">
+        <tr v-for="api in apis" :key="api.API" @click="goToDetail(api.API)">
           <td v-for="key in Keys" :key="key">
-            <router-link :to="{ name: 'Detail', params: { name: api.API } }">{{
-              api[key]
-            }}</router-link>
+            {{ api[key] }}
           </td>
         </tr>
       </tbody>
@@ -30,6 +28,7 @@
 <script lang="ts">
 import { ref } from "vue";
 import { Api, ApisResponse } from "@/models";
+import { useRouter } from "vue-router";
 
 const Keys: (keyof Api)[] = [
   "API",
@@ -47,6 +46,7 @@ export default {
     const apis = ref<Api[]>([]);
     const sortKey = ref<string | null>(null);
     const sortDir = ref<number>(+1);
+    const router = useRouter();
 
     async function listApis() {
       const response = await fetch("https://api.publicapis.org/entries");
@@ -67,6 +67,9 @@ export default {
         apis.value = apis.value.sort((a, b) => (a[key] > b[key] ? dir : -dir));
         sortKey.value = key;
         sortDir.value = dir;
+      },
+      goToDetail(title: string) {
+        router.push({ name: "Detail", params: { title } });
       }
     };
   }
@@ -77,7 +80,7 @@ export default {
 th a {
   color: #42b983;
 }
-td a {
-  color: black;
+tr:hover {
+  cursor: pointer;
 }
 </style>
