@@ -3,7 +3,7 @@
     <table class="table is-hoverable is-striped is-fullwidth">
       <thead>
         <th v-for="key in Keys" :key="key" @click="sort(key)">
-          <a>
+          <a class="has-text-success">
             {{ key }}
             <span class="icon" v-if="sortKey === key && sortDir === +1">
               <i class="fas fa-angle-up"></i>
@@ -15,7 +15,12 @@
         </th>
       </thead>
       <tbody>
-        <tr v-for="api in apis" :key="api.API" @click="goToDetail(api.API)">
+        <tr
+          v-for="api in apis"
+          :key="api.API"
+          @click="goToDetail(api.API)"
+          class="is-clickable"
+        >
           <td v-for="key in Keys" :key="key">
             {{ api[key] }}
           </td>
@@ -75,12 +80,3 @@ export default {
   }
 };
 </script>
-
-<style>
-th a {
-  color: #42b983;
-}
-tr:hover {
-  cursor: pointer;
-}
-</style>

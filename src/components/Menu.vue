@@ -21,23 +21,27 @@
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <router-link to="/" class="navbar-item">
+          <router-link to="/" class="navbar-item has-text-success">
             Home
           </router-link>
 
+          <a class="navbar-item has-text-success">
+            Random
+          </a>
+
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
+            <a class="navbar-link has-text-success">
               Categories
             </a>
             <div class="navbar-dropdown">
-              <a v-for="cat in cats" :key="cat" class="navbar-item">
+              <a
+                v-for="cat in cats"
+                :key="cat"
+                class="navbar-item has-text-success"
+              >
                 {{ cat }}
               </a>
             </div>
-
-            <a class="navbar-item">
-              Random
-            </a>
           </div>
         </div>
       </div>
@@ -76,7 +80,7 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  /* color: #48c774; */
   font-size: 22px;
   font-weight: bold;
 }

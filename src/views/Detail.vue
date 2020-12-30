@@ -14,7 +14,7 @@
         <p>Cors: {{ api.Cors }}</p>
         <p>
           Link:
-          <a :href="api.Link">{{ api.Link }} </a>
+          <a :href="api.Link" class="has-text-success">{{ api.Link }} </a>
         </p>
         <p>Category: {{ api.Category }}</p>
       </div>
@@ -28,7 +28,7 @@
       <div class="box">
         <router-link
           :to="{ name: 'Detail', params: { title: api.API } }"
-          class="has-text-weight-bold is-size-5"
+          class="has-text-weight-bold has-text-success is-size-5"
         >
           {{ api.API }}
         </router-link>
@@ -80,8 +80,5 @@ export default {
 .card-content {
   margin-left: 20px;
   font-weight: bold;
-}
-a {
-  color: #42b983;
 }
 </style>

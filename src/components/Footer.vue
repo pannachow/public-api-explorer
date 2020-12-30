@@ -1,9 +1,9 @@
 <template>
   <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
+    <div class="has-text-centered">
+      <p class="is-size-4 has-text-success">
         This website is created by
-        <strong>Panna</strong>
+        <strong class="has-text-success">Panna</strong>
       </p>
     </div>
   </footer>
@@ -14,10 +14,3 @@ export default {
   name: "Footer"
 };
 </script>
-
-<style scoped>
-* {
-  color: #42b983;
-  font-size: 30px;
-}
-</style>
