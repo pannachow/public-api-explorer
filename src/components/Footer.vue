@@ -1,8 +1,8 @@
 <template>
   <footer class="footer">
     <div class="container">
-      <div class="columns">
-        <div class="column">
+      <div class="is-flex is-justify-content-space-around">
+        <div>
           <h1 class="has-text-weight-bold">Get around</h1>
           <ul>
             <li v-for="route in routes" :key="route">
@@ -12,7 +12,7 @@
             </li>
           </ul>
         </div>
-        <div class="column">
+        <div>
           <h1 class="has-text-weight-bold">Contact</h1>
           <ul>
             <li>Amsterdam, The Netherlands</li>
@@ -30,10 +30,6 @@
           </ul>
         </div>
       </div>
-      <!-- <p class="is-size-4 has-text-success">
-        This website is created by
-        <strong class="has-text-success">Panna</strong>
-      </p> -->
     </div>
   </footer>
 </template>
@@ -59,6 +55,6 @@ export default {
 
 <style scoped>
 .column {
-  text-align: center;
+  /* text-align: center; */
 }
 </style>

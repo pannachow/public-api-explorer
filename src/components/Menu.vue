@@ -28,11 +28,12 @@
             Home
           </router-link>
 
-          <a
+          <router-link
+            to="/randomizer"
             class="navbar-item has-text-success has-text-weight-bold is-size-5"
           >
             Random
-          </a>
+          </router-link>
 
           <div class="navbar-item has-dropdown is-hoverable">
             <a
@@ -84,11 +85,7 @@ ul {
 }
 li {
   display: inline-block;
-  margin: 0 10px;
-}
-a {
-  /* font-size: 22px;
-  font-weight: bold; */
+  margin: 0 20px;
 }
 .navbar-dropdown {
   overflow: auto;
