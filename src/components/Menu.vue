@@ -42,13 +42,14 @@
               Categories
             </a>
             <div class="navbar-dropdown">
-              <a
+              <router-link
+                :to="{ name: 'Home', query: { category: cat } }"
                 v-for="cat in cats"
                 :key="cat"
                 class="navbar-item has-text-success is-size-6"
               >
                 {{ cat }}
-              </a>
+              </router-link>
             </div>
           </div>
         </div>

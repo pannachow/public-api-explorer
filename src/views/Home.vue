@@ -54,7 +54,14 @@ export default {
     const router = useRouter();
 
     async function listApis() {
-      const response = await fetch("https://api.publicapis.org/entries");
+      // url encoding - coz we have spaces in category (queryParams)
+      // https://stackoverflow.com/a/48122942
+      const queryParams = new URLSearchParams(
+        window.location.search.substring(1)
+      );
+      const response = await fetch(
+        `https://api.publicapis.org/entries?${queryParams}`
+      );
       const data: ApisResponse = await response.json();
 
       apis.value = data.entries.slice(0, 10);
