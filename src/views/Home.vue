@@ -22,7 +22,55 @@
           class="is-clickable"
         >
           <td v-for="key in Keys" :key="key">
-            {{ api[key] }}
+            <span
+              v-if="key === 'HTTPS' && api[key]"
+              class="icon has-text-success"
+            >
+              <i :title="api[key]" class="fas fa-check"></i>
+            </span>
+            <span
+              v-else-if="key === 'HTTPS' && !api[key]"
+              class="icon has-text-danger"
+            >
+              <i :title="api[key]" class="fas fa-times"></i>
+            </span>
+            <span
+              v-else-if="key === 'Auth' && api[key] === 'apiKey'"
+              class="icon has-text-warning"
+            >
+              <i :title="api[key]" class="fas fa-key"></i>
+            </span>
+            <span
+              v-else-if="key === 'Auth' && api[key] === 'X-Mashape-Key'"
+              class="icon has-text-danger"
+            >
+              <i :title="api[key]" class="fas fa-key"></i>
+            </span>
+            <span
+              v-else-if="key === 'Auth' && api[key] === 'OAuth'"
+              class="icon has-text-warning"
+            >
+              <i :title="api[key]" class="fab fa-openid"></i>
+            </span>
+            <span
+              v-else-if="key === 'Cors' && api[key] === 'yes'"
+              class="icon has-text-success"
+            >
+              <i :title="api[key]" class="fas fa-check"></i>
+            </span>
+            <span
+              v-else-if="key === 'Cors' && api[key] === 'no'"
+              class="icon has-text-danger"
+            >
+              <i :title="api[key]" class="fas fa-times"></i>
+            </span>
+            <span
+              v-else-if="key === 'Cors' && api[key] === 'unknown'"
+              class="icon has-text-warning"
+            >
+              <i :title="api[key]" class="fas fa-question"></i>
+            </span>
+            <span v-else>{{ api[key] }}</span>
           </td>
         </tr>
       </tbody>

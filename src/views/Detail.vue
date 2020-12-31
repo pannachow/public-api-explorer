@@ -4,7 +4,7 @@
     <h4 class="ml-2">Other APIs from the same category:</h4>
   </div>
   <div class="columns">
-    <div v-for="api in otherApis" :key="api.API" class="column">
+    <div v-for="api in otherApis" :key="api" class="column">
       <div class="box">
         <router-link
           :to="{ name: 'Detail', params: { title: api.API } }"
