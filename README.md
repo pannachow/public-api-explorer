@@ -1,4 +1,6 @@
-# vue-3-and-typescript
+# public-api-explorer
+
+An explorer for https://api.publicapis.org.
 
 ## Project setup
 ```
