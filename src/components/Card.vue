@@ -29,6 +29,7 @@ import { Api } from "@/models";
 export default {
   name: "Card",
   props: {
+    // how to add Vue component props in TypeScript
     // https://stackoverflow.com/a/64832307/1466456
     api: {
       type: Object as PropType<Api>,

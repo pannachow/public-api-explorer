@@ -89,7 +89,7 @@ const Keys: (keyof Api)[] = [
   "Auth",
   "HTTPS",
   "Cors",
-  "Link",
+  // "Link",
   "Category"
 ];
 

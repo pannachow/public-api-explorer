@@ -1,9 +1,12 @@
 <template>
   <Menu />
-  <div class="container">
-    <!-- https://stackoverflow.com/a/54061913/1466456 -->
-    <router-view :key="$route.fullPath" />
-  </div>
+  <section class="main">
+    <div class="container is-widescreen">
+      <!-- reload detail view when title param changes -->
+      <!-- https://stackoverflow.com/a/54061913/1466456 -->
+      <router-view :key="$route.fullPath" />
+    </div>
+  </section>
   <Footer class="footer" />
 </template>
 
@@ -33,7 +36,9 @@ body,
   display: flex;
   flex-direction: column;
 }
-.container {
+/* push footer to the bottom of the page */
+/* https://stackoverflow.com/a/54502051/1466456 */
+.main {
   flex: 1 0 auto;
 }
 .footer {
