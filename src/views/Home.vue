@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <table class="table is-hoverable is-striped is-fullwidth">
+  <div class="table-container">
+    <table class="table is-narrow is-hoverable is-striped is-fullwidth">
       <thead>
         <th v-for="key in Keys" :key="key" @click="sort(key)">
           <a class="has-text-success">
