@@ -1,4 +1,17 @@
 <template>
+  <section class="hero is-success">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Welcome to the public API explorer
+        </h1>
+        <h2 class="subtitle">
+          An explorer for
+          <a href="https://api.publicapis.org">api.publicapis.org</a>
+        </h2>
+      </div>
+    </div>
+  </section>
   <div class="table-container">
     <table class="table is-narrow is-hoverable is-striped is-fullwidth">
       <thead>
