@@ -22,19 +22,19 @@
 
     <div id="navbar" class="navbar-menu" :class="{ 'is-active': open }">
       <div class="navbar-start">
-        <router-link
-          to="/"
+        <a
+          @click="goTo('/')"
           class="navbar-item has-text-success has-text-weight-bold is-size-5"
         >
           Home
-        </router-link>
+        </a>
 
-        <router-link
-          to="/randomizer"
+        <a
+          @click="goTo('/randomizer')"
           class="navbar-item has-text-success has-text-weight-bold is-size-5"
         >
           Random
-        </router-link>
+        </a>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a
@@ -43,14 +43,14 @@
             Categories
           </a>
           <div class="navbar-dropdown" :class="{ 'navbar-limited': !open }">
-            <router-link
-              :to="{ name: 'Home', query: { category: cat } }"
+            <a
+              @click="goTo({ name: 'Home', query: { category: cat } })"
               v-for="cat in cats"
               :key="cat"
               class="navbar-item has-text-success is-size-6"
             >
               {{ cat }}
-            </router-link>
+            </a>
           </div>
         </div>
       </div>
@@ -60,12 +60,14 @@
 
 <script lang="ts">
 import { ref } from "vue";
+import { RouteLocationRaw, useRouter } from "vue-router";
 
 export default {
   name: "Menu",
   setup() {
     const cats = ref<string[]>([]);
     const open = ref<boolean>(false);
+    const router = useRouter();
 
     async function listCat() {
       const response = await fetch(`https://api.publicapis.org/categories`);
@@ -79,6 +81,11 @@ export default {
       open,
       toggle() {
         open.value = !open.value;
+      },
+      goTo(location: RouteLocationRaw) {
+        // close menu drop down in mobile view
+        open.value = false;
+        router.push(location);
       }
     };
   }
