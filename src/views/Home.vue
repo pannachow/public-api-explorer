@@ -15,7 +15,7 @@
   <div class="table-container">
     <table class="table is-narrow is-hoverable is-striped is-fullwidth">
       <thead>
-        <th v-for="key in Keys" :key="key" @click="sort(key)">
+        <th v-for="key in keys" :key="key" @click="sort(key)">
           <a class="has-text-success">
             {{ key }}
             <span class="icon" v-if="sortKey === key && sortDir === +1">
@@ -34,7 +34,7 @@
           @click="goToDetail(api.API)"
           class="is-clickable"
         >
-          <td v-for="key in Keys" :key="key">
+          <td v-for="key in keys" :key="key">
             <span
               v-if="key === 'HTTPS' && api[key]"
               class="icon has-text-success"
@@ -92,20 +92,22 @@
 </template>
 
 <script lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { usePublicApi } from "@/composables";
+import { usePublicApi, useIsMobile } from "@/composables";
 import { Api } from "@/models";
 
-const Keys: (keyof Api)[] = [
+// table columns shown on large screens
+const DesktopKeys: (keyof Api)[] = [
   "API",
   "Description",
   "Auth",
   "HTTPS",
   "Cors",
-  // "Link",
   "Category"
 ];
+// table columns shown on small screens
+const MobileKeys: (keyof Api)[] = ["API", "Auth", "HTTPS", "Cors", "Category"];
 
 export default {
   name: "Home",
@@ -116,6 +118,8 @@ export default {
     const router = useRouter();
     const route = useRoute();
     const publicApi = usePublicApi();
+    const isMobile = useIsMobile();
+    const keys = computed(() => (isMobile.value ? MobileKeys : DesktopKeys));
 
     async function listApis(): Promise<void> {
       // route.query has a complicated type - we only expect it to be of type string
@@ -129,7 +133,7 @@ export default {
 
     return {
       apis,
-      Keys,
+      keys,
       sortKey,
       sortDir,
       sort(key: keyof Api) {
