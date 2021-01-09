@@ -5,6 +5,7 @@
     aria-label="main navigation"
   >
     <div class="navbar-brand">
+      <a class="navbar-item logo" @click="goTo('/')"></a>
       <a
         role="button"
         class="navbar-burger"
@@ -99,5 +100,15 @@ export default {
 }
 .navbar-link:not(.is-arrowless)::after {
   border-color: #48c774;
+}
+.logo {
+  background-image: url(/wagtail.svg);
+  background-size: cover;
+  width: 48px;
+  height: 48px;
+  margin: 2px;
+  /* https://stackoverflow.com/a/53336754/1466456 */
+  filter: invert(69%) sepia(8%) saturate(2815%) hue-rotate(88deg)
+    brightness(96%) contrast(85%);
 }
 </style>
