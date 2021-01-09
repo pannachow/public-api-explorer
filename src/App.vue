@@ -1,6 +1,6 @@
 <template>
   <Menu />
-  <section class="main">
+  <section class="main mb-5">
     <div class="container is-widescreen">
       <!-- reload detail view when title param changes -->
       <!-- https://stackoverflow.com/a/54061913/1466456 -->

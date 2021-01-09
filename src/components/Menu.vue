@@ -61,6 +61,7 @@
 <script lang="ts">
 import { ref } from "vue";
 import { RouteLocationRaw, useRouter } from "vue-router";
+import { usePublicApi } from "@/composables";
 
 export default {
   name: "Menu",
@@ -68,12 +69,11 @@ export default {
     const cats = ref<string[]>([]);
     const open = ref<boolean>(false);
     const router = useRouter();
+    const publicApi = usePublicApi();
 
-    async function listCat() {
-      const response = await fetch(`https://api.publicapis.org/categories`);
-      cats.value = await response.json();
+    async function listCat(): Promise<void> {
+      cats.value = await publicApi.getCategories();
     }
-
     listCat();
 
     return {

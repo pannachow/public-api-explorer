@@ -93,8 +93,9 @@
 
 <script lang="ts">
 import { ref } from "vue";
-import { Api, ApisResponse } from "@/models";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
+import { usePublicApi } from "@/composables";
+import { Api } from "@/models";
 
 const Keys: (keyof Api)[] = [
   "API",
@@ -113,21 +114,17 @@ export default {
     const sortKey = ref<string | null>(null);
     const sortDir = ref<number>(+1);
     const router = useRouter();
+    const route = useRoute();
+    const publicApi = usePublicApi();
 
-    async function listApis() {
-      // url encoding - coz we have spaces in category (queryParams)
-      // https://stackoverflow.com/a/48122942
-      const queryParams = new URLSearchParams(
-        window.location.search.substring(1)
-      );
-      const response = await fetch(
-        `https://api.publicapis.org/entries?${queryParams}`
-      );
-      const data: ApisResponse = await response.json();
-
-      apis.value = data.entries.slice(0, 10);
+    async function listApis(): Promise<void> {
+      // route.query has a complicated type - we only expect it to be of type string
+      const category =
+        typeof route.query["category"] === "string"
+          ? route.query["category"]
+          : undefined;
+      apis.value = await publicApi.getApis(category, 10);
     }
-
     listApis();
 
     return {

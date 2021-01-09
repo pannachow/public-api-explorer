@@ -21,33 +21,28 @@
 <script lang="ts">
 import { ref } from "vue";
 import { useRoute } from "vue-router";
-import { Api, ApisResponse } from "@/models";
+import { Api } from "@/models";
 import Card from "@/components/Card.vue";
+import { usePublicApi } from "@/composables";
 
 export default {
   name: "Detail",
   components: { Card },
   setup() {
-    const route = useRoute();
     const api = ref<Api | null>(null);
     const otherApis = ref<Api[]>([]);
+    const route = useRoute();
+    const publicApi = usePublicApi();
 
-    async function listApi() {
-      const response = await fetch(
-        `https://api.publicapis.org/entries?title=${route.params.title}`
-      );
-      const data: ApisResponse = await response.json();
-      api.value = data.entries[0];
-
-      const otherResponse = await fetch(
-        `https://api.publicapis.org/entries?category=${api.value.Category}`
-      );
-      const otherData: ApisResponse = await otherResponse.json();
-      otherApis.value = otherData.entries
-        .filter(otherApi => data.entries[0].API !== otherApi.API)
-        .slice(0, 3);
+    async function listApi(): Promise<void> {
+      if (Array.isArray(route.params.title)) {
+        throw new Error(
+          `Parameter "title" must be a string but was "${route.params.title}"`
+        );
+      }
+      api.value = await publicApi.getApi(route.params.title);
+      otherApis.value = await publicApi.getSimilarApis(api.value, 3);
     }
-
     listApi();
 
     return {
