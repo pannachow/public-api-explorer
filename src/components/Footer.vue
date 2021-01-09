@@ -52,9 +52,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.column {
-  /* text-align: center; */
-}
-</style>

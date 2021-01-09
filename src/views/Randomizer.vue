@@ -1,7 +1,10 @@
 <template>
   <Card v-if="api" :api="api" />
   <div class="buttons is-centered">
-    <button class="button is-success has-text-weight-bold" @click="getRandom()">
+    <button
+      class="button is-success has-text-weight-bold mb-5"
+      @click="getRandom()"
+    >
       Next random API
     </button>
   </div>

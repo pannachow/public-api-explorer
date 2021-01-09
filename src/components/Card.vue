@@ -14,7 +14,9 @@
         <p>Cors: {{ api.Cors }}</p>
         <p>
           Link:
-          <a :href="api.Link" class="has-text-success">{{ api.Link }} </a>
+          <a :href="api.Link" class="has-text-success word-wrap"
+            >{{ api.Link }}
+          </a>
         </p>
         <p>Category: {{ api.Category }}</p>
       </div>
@@ -48,5 +50,8 @@ export default {
 .card-content {
   margin-left: 20px;
   font-weight: bold;
+}
+.word-wrap {
+  word-wrap: break-word;
 }
 </style>
