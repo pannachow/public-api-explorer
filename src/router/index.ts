@@ -20,6 +20,8 @@ const routes: Array<RouteRecordRaw> = [
   }
 ];
 const router = createRouter({
+  // we use hash mode because history mode doesn't work on Github Pages
+  // https://next.router.vuejs.org/guide/essentials/history-mode.html#hash-mode
   history: createWebHashHistory(process.env.BASE_URL),
   routes
 });

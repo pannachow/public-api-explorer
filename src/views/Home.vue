@@ -113,7 +113,9 @@ export default {
   name: "Home",
   setup() {
     const apis = ref<Api[]>([]);
+    // which table column to sort by
     const sortKey = ref<string | null>(null);
+    // +1 for sorting ascending order (A-Z), -1 for descending order (Z-A)
     const sortDir = ref<number>(+1);
     const router = useRouter();
     const route = useRoute();

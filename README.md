@@ -22,5 +22,10 @@ npm run build
 npm run lint
 ```
 
+### Generate sitemap
+```
+npm run sitemap
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
