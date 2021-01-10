@@ -23,6 +23,7 @@ module.exports = {
       urls,
       outputDir: "public",
       pretty: true,
+      hashMode: true,
       defaults: {
         lastmod: "2021-01-10"
       }
