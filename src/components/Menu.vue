@@ -102,7 +102,7 @@ export default {
   border-color: #48c774;
 }
 .logo {
-  background-image: url(/wagtail.svg);
+  background-image: url(~@/assets/wagtail.svg);
   background-size: cover;
   width: 48px;
   height: 48px;
