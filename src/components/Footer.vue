@@ -6,9 +6,9 @@
           <h1 class="has-text-weight-bold">Get around</h1>
           <ul>
             <li v-for="route in routes" :key="route">
-              <a class="has-text-success" :href="route.path">{{
-                route.name
-              }}</a>
+              <router-link class="has-text-success" :to="route.path">
+                {{ route.name }}
+              </router-link>
             </li>
           </ul>
         </div>
@@ -18,14 +18,14 @@
             <li>Amsterdam, The Netherlands</li>
             <li>+31 645833745</li>
             <li>
-              <a class="has-text-success" href="mailto:chowpanna@gmail.com"
-                >chowpanna@gmail.com</a
-              >
+              <a class="has-text-success" href="mailto:chowpanna@gmail.com">
+                chowpanna@gmail.com
+              </a>
             </li>
             <li>
-              <a class="has-text-success" href="https://pannachow.io"
-                >pannachow.io</a
-              >
+              <a class="has-text-success" href="https://pannachow.io">
+                pannachow.io
+              </a>
             </li>
           </ul>
         </div>
