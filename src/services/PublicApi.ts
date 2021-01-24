@@ -11,7 +11,11 @@ export default class PublicApi {
     this.categoryCache = null;
   }
 
-  async getApis(category?: string, limit?: number): Promise<Api[]> {
+  async getApis(
+    category?: string,
+    offset?: number,
+    limit?: number
+  ): Promise<Api[]> {
     if (this.apiCache === null) {
       const response = await fetch(`${baseUrl}/entries`);
       const data: ApisResponse = await response.json();
@@ -22,10 +26,18 @@ export default class PublicApi {
     if (category) {
       result = result.filter(api => api.Category === category);
     }
+    if (offset) {
+      result = result.slice(offset);
+    }
     if (limit) {
       result = result.slice(0, limit);
     }
     return result;
+  }
+
+  async getApiCount(category?: string): Promise<number> {
+    const apis = await this.getApis(category);
+    return apis.length;
   }
 
   async getApi(title: string): Promise<Api> {
