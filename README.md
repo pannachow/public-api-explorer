@@ -24,7 +24,7 @@ npm run build
 npm run lint
 ```
 
-### Generate sitemap
+### Generates sitemap
 ```
 npm run sitemap
 ```
