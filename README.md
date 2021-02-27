@@ -1,6 +1,8 @@
 # public-api-explorer
 
-An explorer for https://api.publicapis.org.
+An explorer for https://api.publicapis.org. Visit [https://pannachow.io/public-api-explorer](https://pannachow.io/public-api-explorer) for preview.
+
+![Screenshot](screenshot.png)
 
 ## Project setup
 ```
