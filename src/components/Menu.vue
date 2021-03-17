@@ -87,9 +87,9 @@ export default {
         // close menu drop down in mobile view
         open.value = false;
         router.push(location);
-      }
+      },
     };
-  }
+  },
 };
 </script>
 

@@ -27,8 +27,8 @@ export default {
 
     return {
       api,
-      getRandom
+      getRandom,
     };
-  }
+  },
 };
 </script>

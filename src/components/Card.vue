@@ -7,18 +7,18 @@
         </figure>
       </div>
       <div class="column content card-content">
-        <p>{{ api.API }}</p>
-        <p>Description: {{ api.Description }}</p>
-        <p>Auth: {{ api.Auth }}</p>
-        <p>HTTPS: {{ api.HTTPS }}</p>
-        <p>Cors: {{ api.Cors }}</p>
+        <h1>{{ api.API }}</h1>
+        <p><b>Description:</b> {{ api.Description }}</p>
+        <p><b>Auth:</b> {{ api.Auth || "none" }}</p>
+        <p><b>HTTPS:</b> {{ api.HTTPS }}</p>
+        <p><b>Cors:</b> {{ api.Cors }}</p>
         <p>
-          Link:
-          <a :href="api.Link" class="has-text-success word-wrap"
-            >{{ api.Link }}
+          <b>Link: </b>
+          <a :href="api.Link" class="has-text-success word-wrap">
+            {{ api.Link }}
           </a>
         </p>
-        <p>Category: {{ api.Category }}</p>
+        <p><b>Category:</b> {{ api.Category }}</p>
       </div>
     </article>
   </div>
@@ -35,21 +35,20 @@ export default {
     // https://stackoverflow.com/a/64832307/1466456
     api: {
       type: Object as PropType<Api>,
-      required: true
-    }
+      required: true,
+    },
   },
   setup(props: { api: Api }) {
     return {
-      props
+      props,
     };
-  }
+  },
 };
 </script>
 
 <style scoped>
 .card-content {
   margin-left: 20px;
-  font-weight: bold;
 }
 .word-wrap {
   word-wrap: break-word;

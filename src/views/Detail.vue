@@ -47,8 +47,8 @@ export default {
 
     return {
       api,
-      otherApis
+      otherApis,
     };
-  }
+  },
 };
 </script>

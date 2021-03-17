@@ -2,9 +2,7 @@
   <section class="hero is-success">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title">
-          Welcome to the public API explorer
-        </h1>
+        <h1 class="title">Welcome to the public API explorer</h1>
         <h2 class="subtitle">
           An explorer for
           <a href="https://api.publicapis.org">api.publicapis.org</a>
@@ -178,7 +176,7 @@ const DesktopKeys: (keyof Api)[] = [
   "Auth",
   "HTTPS",
   "Cors",
-  "Category"
+  "Category",
 ];
 // table columns shown on small screens
 const MobileKeys: (keyof Api)[] = ["API", "Auth", "HTTPS", "Cors", "Category"];
@@ -243,9 +241,9 @@ export default {
       goToDetail(title: string) {
         router.push({ name: "Detail", params: { title } });
       },
-      isMobile
+      isMobile,
     };
-  }
+  },
 };
 </script>
 

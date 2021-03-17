@@ -43,12 +43,12 @@ export default {
     const router = useRouter();
     // do not include routes with parameters
     const routes = router.options.routes.filter(
-      route => !route.path.includes(":")
+      (route) => !route.path.includes(":")
     );
 
     return {
-      routes
+      routes,
     };
-  }
+  },
 };
 </script>
